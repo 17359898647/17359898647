@@ -1,0 +1,56 @@
+Index: .github/workflows/Generate Snake.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>name: generate animation\n\non:\n  # run automatically every 24 hours\n  schedule:\n    - cron: \"0 */24 * * *\"\n\n  # allows to manually run the job at any time\n  workflow_dispatch:\n\n  # run on every push on the master branch\n  push:\n    branches:\n      - master\n\n\n\njobs:\n  generate:\n    runs-on: ubuntu-latest\n    timeout-minutes: 10\n\n    steps:\n      # generates a snake game from a github user (<github_user_name>) contributions graph, output a svg animation at <svg_out_path>\n      - name: generate github-contribution-grid-snake.svg\n        uses: Platane/snk/svg-only@v3\n        with:\n          github_user_name: ${{ github.repository_owner }}\n          outputs: |\n            dist/img/github-contribution-grid-snake.svg\n            dist/img/github-contribution-grid-snake-dark.svg?palette=github-dark\n        env:\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n\n\n      # push the content of <build_dir> to a branch\n      # the content will be available at https://raw.githubusercontent.com/<github_user>/<repository>/<target_branch>/<file> , or as github page\n      - name: push github-contribution-grid-snake.svg to the main branch\n        uses: crazy-max/ghaction-github-pages@v3.1.0\n        with:\n          target_branch: main\n          build_dir: dist/img\n        env:\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.github/workflows/Generate Snake.yml b/.github/workflows/Generate Snake.yml
+--- a/.github/workflows/Generate Snake.yml	(revision 90171506bb598baffec63fcd2b7ee4948da708a1)
++++ b/.github/workflows/Generate Snake.yml	(date 1694570061743)
+@@ -27,8 +27,8 @@
+         with:
+           github_user_name: ${{ github.repository_owner }}
+           outputs: |
+-            dist/img/github-contribution-grid-snake.svg
+-            dist/img/github-contribution-grid-snake-dark.svg?palette=github-dark
++            /img/github-contribution-grid-snake.svg
++            /img/github-contribution-grid-snake-dark.svg?palette=github-dark
+         env:
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+ 
+@@ -39,6 +39,6 @@
+         uses: crazy-max/ghaction-github-pages@v3.1.0
+         with:
+           target_branch: main
+-          build_dir: dist/img
++          build_dir: /img
+         env:
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"d6d169f3-6903-429c-9d2b-7a1fc0896397\" name=\"更改\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.github/workflows/Generate Snake.yml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.github/workflows/Generate Snake.yml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/README.md\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/README.md\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"MavenImportPreferences\">\n    <option name=\"generalSettings\">\n      <MavenGeneralSettings>\n        <option name=\"localRepository\" value=\"$USER_HOME$/maven/repository\" />\n        <option name=\"mavenHome\" value=\"$USER_HOME$/maven/apache-maven-3.8.8\" />\n        <option name=\"userSettingsFile\" value=\"$USER_HOME$/maven/apache-maven-3.8.8/conf/settings.xml\" />\n      </MavenGeneralSettings>\n    </option>\n  </component>\n  <component name=\"ProjectColorInfo\"><![CDATA[{\n  \"associatedIndex\": 3\n}]]></component>\n  <component name=\"ProjectId\" id=\"2VJymDnyclaKjKBm0il3NnOBDL0\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"WebServerToolWindowFactoryState\": \"false\",\n    \"dart.analysis.tool.window.visible\": \"false\",\n    \"git-widget-placeholder\": \"main\",\n    \"last_opened_file_path\": \"/Users/gedatou/IdeaProjects/17359898647\",\n    \"node.js.detected.package.tslint\": \"true\",\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\n    \"node.js.selected.package.standard\": \"\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\n    \"nodejs_package_manager_path\": \"npm\",\n    \"project.structure.last.edited\": \"SDK 位置\",\n    \"project.structure.proportion\": \"0.17\",\n    \"project.structure.side.proportion\": \"0.0\",\n    \"settings.editor.selected.configurable\": \"actions.on.save\",\n    \"vue.rearranger.settings.migration\": \"true\"\n  }\n}]]></component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"应用程序级\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"默认任务\">\n      <changelist id=\"d6d169f3-6903-429c-9d2b-7a1fc0896397\" name=\"更改\" comment=\"\" />\n      <created>1685946199011</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1685946199011</updated>\n      <workItem from=\"1694568636844\" duration=\"1062000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 90171506bb598baffec63fcd2b7ee4948da708a1)
++++ b/.idea/workspace.xml	(date 1694570064911)
+@@ -7,7 +7,6 @@
+     <list default="true" id="d6d169f3-6903-429c-9d2b-7a1fc0896397" name="更改" comment="">
+       <change beforePath="$PROJECT_DIR$/.github/workflows/Generate Snake.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/Generate Snake.yml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -65,7 +64,7 @@
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+       <updated>1685946199011</updated>
+-      <workItem from="1694568636844" duration="1062000" />
++      <workItem from="1694568636844" duration="1426000" />
+     </task>
+     <servers />
+   </component>
