@@ -1,5 +1,5 @@
 
-![Alt text](img/8301690024649_.pic.jpg)
+![scenery.jpg](img%2Fscenery.jpg)
 # Hello there! 👋🏻 I am ge datou ! <img src="./img/cat.gif" alt="Meaow" width="50" />
 
 Hello, I'm [葛葛葛](https://github.com/17359898647)
@@ -21,7 +21,7 @@ Hello, I'm [葛葛葛](https://github.com/17359898647)
 
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/17359898647/17359898647/main/img/github-contribution-grid-snake-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/17359898647/17359898647/main/img/github-contribution-grid-snake.svg">
-  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/17359898647/17359898647/main/img/github-contribution-grid-snake.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/17359898647/17359898647/output/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/17359898647/17359898647/output/github-contribution-grid-snake.svg">
+  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/17359898647/17359898647/output/github-contribution-grid-snake.svg">
 </picture>
